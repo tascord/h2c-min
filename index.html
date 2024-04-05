@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/23cedd8303.js" crossorigin="anonymous"></script>
+
+    <!-- Montserrat Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <!-- HTML2Canvas -->
+    <script src="/html2canvas.min.js"></script>
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="/main.css">
+
+    <!-- Capturing -->
+    <script defer>
+        function capture() {
+            html2canvas(document.querySelector("div"), { logging: true }).then(canvas => {
+                const a = document.createElement("a");
+                a.href = canvas.toDataURL("image/png");
+                a.download = `${Date.now()}.png`;
+                a.click();
+            })
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        <h1>
+            Hello World
+            <i class="fa-solid fa-globe"></i>
+        </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tempore ipsa a. Explicabo, nobis neque? Et ab numquam enim praesentium.</p>
+    </div>
+
+    <button onclick="capture()">
+        <i class="fa-solid fa-camera"></i>
+        Capture
+    </button>
+    
+</body>
+</html>
